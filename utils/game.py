@@ -6,21 +6,21 @@ from utils.card import Card
 
 
 class Deck:
-    """
-    """
+    """ """
+
     def __init__(self) -> None:
         self.cards: List[Card] = []
 
     def __str__(self) -> str:
-        return f'Deck has {len(self.cards)} cards'
+        return f"Deck has {len(self.cards)} cards"
 
     def fill_deck(self) -> None:
         """
-        fill cards with a complete card game (an instance of 'A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K' for each possible symbol [♥, ♦, ♣, ♠]). 
+        fill cards with a complete card game (an instance of 'A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K' for each possible symbol [♥, ♦, ♣, ♠]).
         Your deck should contain 52 cards at the end.
         """
-        values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-        symbols = ['♥', '♦', '♣', '♠']
+        values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+        symbols = ["♥", "♦", "♣", "♠"]
         for i in symbols:
             for j in values:
                 self.cards.append(Card(j, i))
@@ -39,7 +39,7 @@ class Deck:
             for player in players:
                 player.add_card(self.cards.pop())
         if len(self.cards) > 0:
-            print(f'{len(self.cards)} card could not be distributed') 
+            print(f"{len(self.cards)} card could not be distributed")
             print([card.__str__() for card in self.cards])
         return players
 
@@ -52,7 +52,7 @@ class Board:
         self.history_cards: List[Card] = []
 
     def __str__(self) -> str:
-        return f'{len(self.players)} players are playing for {self.turn_count} turns'
+        return f"{len(self.players)} players are playing for {self.turn_count} turns"
 
     def start_game(self) -> None:
         """
@@ -66,10 +66,10 @@ class Board:
         The number of cards in the history_cards.
         """
         # Start board & player setup
-        name = ' '
+        name = " "
         names = []
         while name or len(names) < 2:
-            name = input('Write player name (ENTER when done): ')
+            name = input("Write player name (ENTER when done): ")
             if name and name not in names:
                 names.append(name)
                 self.players.append(Player(name))
@@ -95,6 +95,8 @@ class Board:
                 nb_cards_in_hands += player.number_of_cards
             self.turn_count += 1
             active_cards_str = [card.__str__() for card in self.active_cards]
-            print(f'Turn: {self.turn_count}\n\
+            print(
+                f"Turn: {self.turn_count}\n\
 Cards on board: {active_cards_str}\n\
-Graveyard: {len(self.history_cards)}')
+Graveyard: {len(self.history_cards)}"
+            )

@@ -12,6 +12,7 @@ This project was a bonus project. If we had still time after the [Hangman](https
 
 ```txt
 Python 3.6
+Black 21.5b1
 ```
 
 ## Installation
@@ -19,6 +20,7 @@ Python 3.6
 ```bash
 git clone https://github.com/kaygu/challenge-card-game-becode.git OOP_Card_Game
 cd OOP_Card_Game
+pip install requirements.txt
 ```
 
 ## Usage
@@ -30,7 +32,6 @@ python3 main.py
 ## TODO
 
 * Add docstrings
-* Add [Black](https://pypi.org/project/black/) code formater
 
 ## Possible imporvements
 
